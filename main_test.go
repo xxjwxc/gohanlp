@@ -2,8 +2,9 @@ package gohanlp
 
 import (
 	"fmt"
-	"gohanlp/hanlp"
 	"testing"
+
+	"github.com/xxjwxc/gohanlp/hanlp"
 )
 
 func TestMain(t *testing.T) {

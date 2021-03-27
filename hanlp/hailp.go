@@ -289,7 +289,9 @@ func getHeader(opts Options) http.Header {
 	header := make(http.Header)
 	header.Add("Accept", "application/json")
 	header.Add("Content-Type", "application/json;charset=utf-8")
-	header.Add("Authorization", "Basic "+opts.Auth)
+	if len(opts.Auth) > 0 {
+		header.Add("Authorization", "Basic "+opts.Auth)
+	}
 	return header
 }
 

@@ -1,4 +1,4 @@
-module gohanlp
+module github.com/xxjwxc/gohanlp
 
 go 1.16
 
