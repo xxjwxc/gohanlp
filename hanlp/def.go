@@ -23,7 +23,7 @@ type HanResp struct {
 	NerOntonotes [][]NerTuple   `json:"ner/ontonotes"` // 命名实体识别 https://hanlp.hankcs.com/docs/annotations/ner/ontonotes.html
 	Srl          [][][]SrlTuple `json:"srl"`           // 语义角色标注 其中谓词被标记为pred https://hanlp.hankcs.com/docs/annotations/srl/index.html
 	Dep          [][]DepTuple   `json:"dep"`           // 依存句法分析 https://hanlp.hankcs.com/docs/annotations/dep/index.html
-	Sdp          [][]DepTuple   `json:"sdp"`           // 语义依存分析 https://hanlp.hankcs.com/docs/annotations/sdp/index.html
+	Sdp          [][][]DepTuple `json:"sdp"`           // 语义依存分析 https://hanlp.hankcs.com/docs/annotations/sdp/index.html
 	Con          []ConTuple     `json:"con"`           // 短语成分分析
 }
 
@@ -66,6 +66,6 @@ type hanResp struct {
 	NerOntonotes [][]interface{}   `json:"ner/ontonotes"` // 命名实体识别 https://hanlp.hankcs.com/docs/annotations/ner/ontonotes.html
 	Srl          [][][]interface{} `json:"srl"`           // 语义角色标注 其中谓词被标记为pred https://hanlp.hankcs.com/docs/annotations/srl/index.html
 	Dep          [][]interface{}   `json:"dep"`           // 依存句法分析 https://hanlp.hankcs.com/docs/annotations/dep/index.html
-	Sdp          [][]interface{}   `json:"sdp"`           // 语义依存分析 https://hanlp.hankcs.com/docs/annotations/sdp/index.html
+	Sdp          [][][]interface{} `json:"sdp"`           // 语义依存分析 https://hanlp.hankcs.com/docs/annotations/sdp/index.html
 	Con          []interface{}     `json:"con"`           // 短语成分分析
 }
