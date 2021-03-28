@@ -5,6 +5,8 @@
 ## [HanLP](https://github.com/hankcs/HanLP) 的golang 接口
 - 在线轻量级RESTful API
 - 仅数KB，适合敏捷开发、移动APP等场景。服务器算力有限，匿名用户配额较少
+- 支持基于等宽字体的[可视化](https://hanlp.hankcs.com/docs/tutorial.html#visualization)，能够直接将语言学结构在控制台内可视化出来
+- 
 
 ## 使用方式
 
@@ -39,6 +41,13 @@ fmt.Println(resp)
 [options](https://github.com/xxjwxc/gohanlp/blob/main/hanlp/option.go)
 
 #### 更多信息
+
+
+关于标注集含义，请参考[《语言学标注规范》](https://hanlp.hankcs.com/docs/annotations/index.html)及[《格式规范》](https://hanlp.hankcs.com/docs/data_format.html)。我们购买、标注或采用了世界上量级最大、种类最多的语料库用于联合多语种多任务学习，所以HanLP的标注集也是覆盖面最广的。
+
+## 训练你自己的领域模型
+
+写深度学习模型一点都不难，难的是复现较高的准确率。下列[代码](https://github.com/hankcs/HanLP/blob/master/plugins/hanlp_demo/hanlp_demo/zh/train_sota_bert_pku.py)展示了如何在sighan2005 PKU语料库上花6分钟训练一个超越学术界state-of-the-art的中文分词模型。
 
 [English](https://github.com/hankcs/HanLP/tree/master) | [文档](https://hanlp.hankcs.com/docs/) |  [1.x版](https://github.com/hankcs/HanLP/tree/1.x) | [论坛](https://bbs.hankcs.com/) | [docker](https://github.com/wangedison/hanlp-jupyterlab-docker) | [▶️在线运行](https://play.hanlp.ml/)
 
