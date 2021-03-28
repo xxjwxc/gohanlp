@@ -5,7 +5,7 @@ package hanlp
 // HanReq hanlp 请求参数
 type HanReq struct {
 	Text      string   `json:"text,omitempty"`     // 文本
-	Language  string   `json:"language,omitempty"` // 语言(zh,mnt)
+	Language  string   `json:"language,omitempty"` // 语言(zh,mnl)
 	Tokens    []string `json:"tokens,omitempty"`   // 一个句子列表，其中每个句子都是一个标记列表。
 	Tasks     []string `json:"tasks,omitempty"`    // 任务列表()
 	SkipTasks []string `json:"skip_tasks"`
@@ -37,8 +37,8 @@ type NerTuple struct {
 
 // SrlTuple 语义角色标注。与ner类似，每个元素都是一个元组（arg/pred，label，begin，end），其中谓词被标记为pred。
 type SrlTuple struct {
-	ArgPred string `json:"arg/pred"` // 实体
-	Label   string `json:"label"`    // 类型
+	ArgPred string `json:"arg/pred"` // 参数
+	Label   string `json:"label"`    // 标签
 	Begin   int    `json:"begin"`    // 开始点
 	End     int    `json:"end"`      // 独占偏移量
 }

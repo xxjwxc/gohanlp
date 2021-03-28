@@ -43,7 +43,7 @@ func (h *hanlp) Parse(text string, opts ...Option) (string, error) {
 
 	req := &HanReq{
 		Text:      text,             // 文本
-		Language:  options.Language, // 语言(zh,mnt)
+		Language:  options.Language, // 语言(zh,mnl)
 		Tasks:     options.Tasks,    // 任务列表()
 		SkipTasks: options.SkipTasks,
 	}
@@ -68,7 +68,7 @@ func (h *hanlp) ParseObj(text string, opts ...Option) (*HanResp, error) {
 
 	req := &HanReq{
 		Text:      text,             // 文本
-		Language:  options.Language, // 语言(zh,mnt)
+		Language:  options.Language, // 语言(zh,mnl)
 		Tasks:     options.Tasks,    // 任务列表()
 		SkipTasks: options.SkipTasks,
 	}
@@ -98,7 +98,7 @@ func (h *hanlp) ParseAny(text string, resp interface{}, opts ...Option) error {
 
 	req := &HanReq{
 		Text:      text,             // 文本
-		Language:  options.Language, // 语言(zh,mnt)
+		Language:  options.Language, // 语言(zh,mnl)
 		Tasks:     options.Tasks,    // 任务列表()
 		SkipTasks: options.SkipTasks,
 	}
@@ -219,8 +219,8 @@ func marshalHanResp(b []byte) (*HanResp, error) {
 				case []interface{}:
 					{
 						tmp1 = append(tmp1, SrlTuple{
-							ArgPred: t[0].(string),       // 实体
-							Label:   t[1].(string),       // 类型
+							ArgPred: t[0].(string),       // 参数
+							Label:   t[1].(string),       // 标签
 							Begin:   int(t[2].(float64)), // 开始点
 							End:     int(t[3].(float64)),
 						})
@@ -243,8 +243,8 @@ func marshalHanResp(b []byte) (*HanResp, error) {
 			case []interface{}:
 				{
 					tmp = append(tmp, DepTuple{
-						Head:     int(t[0].(float64)), // 开始点
-						Relation: t[1].(string),       // 类型
+						Head:     int(t[0].(float64)), // 头
+						Relation: t[1].(string),       // 关系
 					})
 				}
 			default:
@@ -281,7 +281,6 @@ func marshalHanResp(b []byte) (*HanResp, error) {
 	resp.Con = dealCon(hr.Con)
 	// ------------end
 
-	// Con          []interface{}
 	return resp, nil
 }
 
