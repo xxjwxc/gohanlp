@@ -325,3 +325,30 @@ func dealCon(info []interface{}) (re []ConTuple) {
 
 	return re
 }
+
+// KeyphraseExtraction 关键词提取
+/*
+opts 是临时参数部分
+*/
+func (h *hanlp) KeyphraseExtraction(text string, opts ...Option) (map[string]float64, error) {
+	options := h.opts
+	for _, f := range opts { // 执行自定义option
+		f(&options)
+	}
+
+	req := &HanReq{
+		Text:      text,             // 文本
+		Language:  options.Language, // 语言(zh,mnl)
+		Tasks:     options.Tasks,    // 任务列表()
+		SkipTasks: options.SkipTasks,
+	}
+	b, err := myhttp.PostHeader(options.URL+"/keyphrase_extraction", tools.JSONDecode(req), getHeader(options))
+	if err != nil {
+		mylog.Error(err)
+		return nil, err
+	}
+
+	mp := make(map[string]float64)
+	tools.JSONEncode(string(b), &mp)
+	return mp, err
+}
